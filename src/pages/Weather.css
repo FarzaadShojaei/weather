@@ -1,0 +1,148 @@
+/* Weather Page Styles */
+.weather {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.weather-header {
+  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.weather-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.weather-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.weather-content {
+  padding: 4rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.city-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.city-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.city-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.city-icon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.city-info {
+  text-align: center;
+}
+
+.city-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2d3436;
+}
+
+.city-country {
+  color: #636e72;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.city-temperature {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0984e3;
+  margin-bottom: 0.5rem;
+}
+
+.city-condition {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.city-description {
+  color: #636e72;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .weather-header {
+    padding: 3rem 1rem;
+  }
+  
+  .weather-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .weather-header p {
+    font-size: 1rem;
+  }
+  
+  .weather-content {
+    padding: 3rem 1rem;
+  }
+  
+  .cities-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .city-card {
+    padding: 1.5rem;
+  }
+  
+  .city-icon {
+    font-size: 3rem;
+  }
+} 
