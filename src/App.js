@@ -9,6 +9,7 @@ import Weather from './pages/Weather';
 import CityWeather from './pages/CityWeather';
 import Content from './pages/Content';
 import About from './pages/About';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
             <Route path="/weather/:cityName" element={<CityWeather />} />
             <Route path="/content" element={<Content />} />
             <Route path="/about" element={<About />} />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <CartNotification />
           <FloatingCart />

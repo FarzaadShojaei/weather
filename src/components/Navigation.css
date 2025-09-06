@@ -54,6 +54,30 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+/* Special styling for 404 Demo link */
+.nav-link-404 {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white !important;
+  font-weight: 600;
+  animation: pulse404 2s infinite;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link-404:hover {
+  background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes pulse404 {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-container {
