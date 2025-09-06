@@ -137,6 +137,28 @@ const NotFound = () => {
             </div>
           </div>
 
+          <div className="redirect-demo">
+            <h3>🔗 Test Redirect Functionality</h3>
+            <p>Try these broken links to see the redirect in action:</p>
+            <div className="broken-links">
+              <Link to="/random-page" className="broken-link">
+                🔗 Random Page (will redirect)
+              </Link>
+              <Link to="/does-not-exist" className="broken-link">
+                🔗 Non-existent Page (will redirect)
+              </Link>
+              <Link to="/broken/deep/link" className="broken-link">
+                🔗 Deep Broken Link (will redirect)
+              </Link>
+              <Link to="/admin/secret" className="broken-link">
+                🔗 Secret Admin Page (will redirect)
+              </Link>
+            </div>
+            <p className="redirect-note">
+              ℹ️ All these links will automatically redirect you back to this page (/notfound)
+            </p>
+          </div>
+
           <div className="additional-cart-options">
             <h3>More Emergency Supplies</h3>
             <div className="button-group">

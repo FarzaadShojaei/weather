@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import Navigation from './components/Navigation';
 import CartNotification from './components/CartNotification';
@@ -24,8 +24,9 @@ function App() {
             <Route path="/weather/:cityName" element={<CityWeather />} />
             <Route path="/content" element={<Content />} />
             <Route path="/about" element={<About />} />
-            <Route path="/404" element={<NotFound />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/notfound" element={<NotFound />} />
+            <Route path="/404" element={<Navigate to="/notfound" replace />} />
+            <Route path="*" element={<Navigate to="/notfound" replace />} />
           </Routes>
           <CartNotification />
           <FloatingCart />
