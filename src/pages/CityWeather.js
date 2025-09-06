@@ -1,10 +1,16 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './CityWeather.css';
 import '../components/CartButtons.css';
 
 const CityWeather = () => {
   const { cityName } = useParams();
+  const { addItem } = useCart();
+
+  const handleAddToCart = (item) => {
+    addItem(item);
+  };
   
   // Sample weather data for cities
   const cityData = {
@@ -99,8 +105,30 @@ const CityWeather = () => {
               <p className="current-condition">{city.condition}</p>
               
               <div className="cart-buttons-container">
-                <button className="cart-btn-primary" onClick={() => {}}>Add City Data</button>
-                <button className="cart-type-btn" onClick={() => {}}>Buy Weather Pack</button>
+                <button 
+                  className="cart-btn-primary" 
+                  onClick={() => handleAddToCart({
+                    id: `${city.name.toLowerCase()}-detailed-data`,
+                    name: `${city.name} Detailed Data`,
+                    description: `Complete weather analysis for ${city.name}`,
+                    price: 19.99,
+                    icon: city.icon
+                  })}
+                >
+                  Add City Data
+                </button>
+                <button 
+                  className="cart-type-btn" 
+                  onClick={() => handleAddToCart({
+                    id: `${city.name.toLowerCase()}-weather-pack`,
+                    name: `${city.name} Weather Pack`,
+                    description: `Full weather monitoring for ${city.name}`,
+                    price: 39.99,
+                    icon: city.icon
+                  })}
+                >
+                  Buy Weather Pack
+                </button>
               </div>
             </div>
             <div className="current-icon">
@@ -165,7 +193,19 @@ const CityWeather = () => {
                   <span className="low-temp">{day.low}</span>
                 </div>
                 <div className="forecast-condition">{day.condition}</div>
-                <button data-cart="add" onClick={() => {}} style={{marginTop: '10px', fontSize: '11px', padding: '6px 12px'}}>Add Forecast</button>
+                <button 
+                  data-cart="add" 
+                  onClick={() => handleAddToCart({
+                    id: `${city.name.toLowerCase()}-forecast-${index}`,
+                    name: `${city.name} ${day.day} Forecast`,
+                    description: `Detailed forecast for ${day.day}`,
+                    price: 2.99,
+                    icon: day.icon
+                  })} 
+                  style={{marginTop: '10px', fontSize: '11px', padding: '6px 12px'}}
+                >
+                  Add Forecast
+                </button>
               </div>
             ))}
           </div>
@@ -173,9 +213,42 @@ const CityWeather = () => {
           <div className="cart-buttons-section">
             <h3 className="cart-buttons-title">Premium Weather Services</h3>
             <div className="cart-buttons-container">
-              <button id="cart-btn-special" onClick={() => {}}>Extended Forecast</button>
-              <button className="cart-btn-hover" onClick={() => {}}>hourly updates</button>
-              <button className="cart-btn-universal" onClick={() => {}}>Weather Alerts</button>
+              <button 
+                id="cart-btn-special" 
+                onClick={() => handleAddToCart({
+                  id: `${city.name.toLowerCase()}-extended-forecast`,
+                  name: `${city.name} Extended Forecast`,
+                  description: `30-day extended forecast for ${city.name}`,
+                  price: 24.99,
+                  icon: '📅'
+                })}
+              >
+                Extended Forecast
+              </button>
+              <button 
+                className="cart-btn-hover" 
+                onClick={() => handleAddToCart({
+                  id: `${city.name.toLowerCase()}-hourly-updates`,
+                  name: `${city.name} Hourly Updates`,
+                  description: `Real-time hourly weather updates for ${city.name}`,
+                  price: 14.99,
+                  icon: '⏰'
+                })}
+              >
+                hourly updates
+              </button>
+              <button 
+                className="cart-btn-universal" 
+                onClick={() => handleAddToCart({
+                  id: `${city.name.toLowerCase()}-weather-alerts`,
+                  name: `${city.name} Weather Alerts`,
+                  description: `Instant alerts for severe weather in ${city.name}`,
+                  price: 9.99,
+                  icon: '🚨'
+                })}
+              >
+                Weather Alerts
+              </button>
             </div>
           </div>
         </div>

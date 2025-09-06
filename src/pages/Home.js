@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './Home.css';
 import '../components/CartButtons.css';
 
 const Home = () => {
+  const { addItem } = useCart();
+
+  const handleAddToCart = (item) => {
+    addItem(item);
+  };
+
   return (
     <div className="home">
       <div className="hero-section">
@@ -24,9 +31,42 @@ const Home = () => {
           <div className="cart-buttons-section">
             <h3 className="cart-buttons-title">Featured Products</h3>
             <div className="cart-buttons-container">
-              <button className="cart-btn-primary" onClick={() => {}}>Add to Cart</button>
-              <button id="cart-btn-special" onClick={() => {}}>Add Premium Item</button>
-              <button className="cart-btn-sibling" onClick={() => {}}>Quick Add</button>
+              <button 
+                className="cart-btn-primary" 
+                onClick={() => handleAddToCart({
+                  id: 'weather-basic',
+                  name: 'Basic Weather Pack',
+                  description: 'Essential weather tracking tools',
+                  price: 19.99,
+                  icon: '🌤️'
+                })}
+              >
+                Add to Cart
+              </button>
+              <button 
+                id="cart-btn-special" 
+                onClick={() => handleAddToCart({
+                  id: 'weather-premium',
+                  name: 'Premium Weather Suite',
+                  description: 'Advanced forecasting with alerts',
+                  price: 49.99,
+                  icon: '⚡'
+                })}
+              >
+                Add Premium Item
+              </button>
+              <button 
+                className="cart-btn-sibling" 
+                onClick={() => handleAddToCart({
+                  id: 'weather-quick',
+                  name: 'Quick Weather Access',
+                  description: 'Instant weather updates',
+                  price: 9.99,
+                  icon: '🚀'
+                })}
+              >
+                Quick Add
+              </button>
             </div>
           </div>
         </div>
@@ -48,19 +88,52 @@ const Home = () => {
               <div className="feature-icon">🌡️</div>
               <h3>Real-time Weather</h3>
               <p>Get accurate weather information for cities around the world</p>
-              <button className="cart-btn-feature" onClick={() => {}}>Add Weather Kit</button>
+              <button 
+                className="cart-btn-feature" 
+                onClick={() => handleAddToCart({
+                  id: 'realtime-weather',
+                  name: 'Real-time Weather Kit',
+                  description: 'Live weather data for any location',
+                  price: 24.99,
+                  icon: '🌡️'
+                })}
+              >
+                Add Weather Kit
+              </button>
             </div>
             <div className="feature-card">
               <div className="feature-icon">📰</div>
               <h3>Weather Articles</h3>
               <p>Stay informed with the latest weather news and insights</p>
-              <button className="cart-btn-feature" onClick={() => {}}>Subscribe Articles</button>
+              <button 
+                className="cart-btn-feature" 
+                onClick={() => handleAddToCart({
+                  id: 'weather-articles',
+                  name: 'Weather Articles Subscription',
+                  description: 'Access to premium weather content',
+                  price: 14.99,
+                  icon: '📰'
+                })}
+              >
+                Subscribe Articles
+              </button>
             </div>
             <div className="feature-card">
               <div className="feature-icon">🗺️</div>
               <h3>Multiple Cities</h3>
               <p>Explore weather conditions in different cities worldwide</p>
-              <button className="cart-btn-feature" onClick={() => {}}>Get City Pack</button>
+              <button 
+                className="cart-btn-feature" 
+                onClick={() => handleAddToCart({
+                  id: 'city-pack',
+                  name: 'Multi-City Weather Pack',
+                  description: 'Weather data for 100+ cities',
+                  price: 34.99,
+                  icon: '🗺️'
+                })}
+              >
+                Get City Pack
+              </button>
             </div>
           </div>
         </div>

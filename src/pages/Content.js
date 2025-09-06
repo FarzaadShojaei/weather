@@ -1,8 +1,15 @@
 import React from 'react';
+import { useCart } from '../context/CartContext';
 import './Content.css';
 import '../components/CartButtons.css';
 
 const Content = () => {
+  const { addItem } = useCart();
+
+  const handleAddToCart = (item) => {
+    addItem(item);
+  };
+
   const articles = [
     {
       id: 1,
@@ -72,9 +79,42 @@ const Content = () => {
           <div className="cart-buttons-section">
             <h3 className="cart-buttons-title">Article Packages</h3>
             <div className="cart-buttons-container">
-              <button data-cart="add" onClick={() => {}}>Add Article Access</button>
-              <button className="cart-btn-hover" onClick={() => {}}>premium content</button>
-              <button id="cart-btn-special" onClick={() => {}}>Full Library Access</button>
+              <button 
+                data-cart="add" 
+                onClick={() => handleAddToCart({
+                  id: 'article-access-basic',
+                  name: 'Basic Article Access',
+                  description: 'Access to selected weather articles',
+                  price: 9.99,
+                  icon: '📰'
+                })}
+              >
+                Add Article Access
+              </button>
+              <button 
+                className="cart-btn-hover" 
+                onClick={() => handleAddToCart({
+                  id: 'premium-content',
+                  name: 'Premium Content Subscription',
+                  description: 'Full access to premium weather content',
+                  price: 24.99,
+                  icon: '🌟'
+                })}
+              >
+                premium content
+              </button>
+              <button 
+                id="cart-btn-special" 
+                onClick={() => handleAddToCart({
+                  id: 'full-library-access',
+                  name: 'Full Library Access',
+                  description: 'Complete access to all weather articles and research',
+                  price: 49.99,
+                  icon: '📚'
+                })}
+              >
+                Full Library Access
+              </button>
             </div>
           </div>
         </div>
@@ -109,7 +149,19 @@ const Content = () => {
                   </div>
                   <div style={{display: 'flex', gap: '10px', marginTop: '10px'}}>
                     <button className="read-more-btn">Read More →</button>
-                    <button className="cart-btn-universal" onClick={() => {}} style={{fontSize: '12px', padding: '8px 16px'}}>Add Article</button>
+                    <button 
+                      className="cart-btn-universal" 
+                      onClick={() => handleAddToCart({
+                        id: `article-${article.id}`,
+                        name: article.title,
+                        description: article.excerpt.substring(0, 50) + '...',
+                        price: 3.99,
+                        icon: article.image
+                      })} 
+                      style={{fontSize: '12px', padding: '8px 16px'}}
+                    >
+                      Add Article
+                    </button>
                   </div>
                 </div>
               </article>
@@ -127,8 +179,30 @@ const Content = () => {
               </div>
               
               <div className="cart-buttons-container" style={{marginTop: '20px'}}>
-                <button className="cart-type-btn" onClick={() => {}}>Add Newsletter Premium</button>
-                <button className="cart-btn-primary" onClick={() => {}}>Add to Cart</button>
+                <button 
+                  className="cart-type-btn" 
+                  onClick={() => handleAddToCart({
+                    id: 'newsletter-premium',
+                    name: 'Premium Newsletter Subscription',
+                    description: 'Weekly premium weather insights and forecasts',
+                    price: 7.99,
+                    icon: '📩'
+                  })}
+                >
+                  Add Newsletter Premium
+                </button>
+                <button 
+                  className="cart-btn-primary" 
+                  onClick={() => handleAddToCart({
+                    id: 'newsletter-basic',
+                    name: 'Newsletter Subscription',
+                    description: 'Monthly weather updates and tips',
+                    price: 2.99,
+                    icon: '✉️'
+                  })}
+                >
+                  Add to Cart
+                </button>
               </div>
             </div>
           </div>

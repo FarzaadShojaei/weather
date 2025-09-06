@@ -1,8 +1,15 @@
 import React from 'react';
+import { useCart } from '../context/CartContext';
 import './About.css';
 import '../components/CartButtons.css';
 
 const About = () => {
+  const { addItem } = useCart();
+
+  const handleAddToCart = (item) => {
+    addItem(item);
+  };
+
   const teamMembers = [
     {
       name: "Dr. Sarah Johnson",
@@ -75,9 +82,42 @@ const About = () => {
           <div className="cart-buttons-section">
             <h3 className="cart-buttons-title">Company Services</h3>
             <div className="cart-buttons-container">
-              <button className="cart-btn-primary" onClick={() => {}}>Add Consultation</button>
-              <button className="cart-btn-sibling" onClick={() => {}}>Enterprise Package</button>
-              <button className="cart-type-btn" onClick={() => {}}>Custom Solutions</button>
+              <button 
+                className="cart-btn-primary" 
+                onClick={() => handleAddToCart({
+                  id: 'weather-consultation',
+                  name: 'Weather Consultation',
+                  description: 'Expert weather analysis and recommendations',
+                  price: 199.99,
+                  icon: '👩‍🔬'
+                })}
+              >
+                Add Consultation
+              </button>
+              <button 
+                className="cart-btn-sibling" 
+                onClick={() => handleAddToCart({
+                  id: 'enterprise-package',
+                  name: 'Enterprise Weather Package',
+                  description: 'Complete weather solution for businesses',
+                  price: 999.99,
+                  icon: '🏢'
+                })}
+              >
+                Enterprise Package
+              </button>
+              <button 
+                className="cart-type-btn" 
+                onClick={() => handleAddToCart({
+                  id: 'custom-solutions',
+                  name: 'Custom Weather Solutions',
+                  description: 'Tailored weather services for your needs',
+                  price: 499.99,
+                  icon: '⚙️'
+                })}
+              >
+                Custom Solutions
+              </button>
             </div>
           </div>
         </div>
@@ -138,8 +178,28 @@ const About = () => {
                   <p className="team-role">{member.role}</p>
                   <p className="team-description">{member.description}</p>
                   <div className="button-group">
-                    <button onClick={() => {}}>Hire Expert</button>
-                    <button onClick={() => {}}>Schedule Call</button>
+                    <button 
+                      onClick={() => handleAddToCart({
+                        id: `hire-${member.name.toLowerCase().replace(/\s+/g, '-')}`,
+                        name: `Hire ${member.name}`,
+                        description: `Personal consultation with ${member.name}`,
+                        price: 149.99,
+                        icon: member.image
+                      })}
+                    >
+                      Hire Expert
+                    </button>
+                    <button 
+                      onClick={() => handleAddToCart({
+                        id: `call-${member.name.toLowerCase().replace(/\s+/g, '-')}`,
+                        name: `Call with ${member.name}`,
+                        description: `30-minute consultation call with ${member.name}`,
+                        price: 49.99,
+                        icon: '📞'
+                      })}
+                    >
+                      Schedule Call
+                    </button>
                   </div>
                 </div>
               ))}

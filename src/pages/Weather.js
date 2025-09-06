@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 import './Weather.css';
 import '../components/CartButtons.css';
 
 const Weather = () => {
+  const { addItem } = useCart();
+
+  const handleAddToCart = (item) => {
+    addItem(item);
+  };
+
   const cities = [
     {
       name: 'New York',
@@ -81,9 +88,42 @@ const Weather = () => {
           <div className="cart-buttons-section">
             <h3 className="cart-buttons-title">Weather Packages</h3>
             <div className="cart-buttons-container">
-              <button data-cart="add" onClick={() => {}}>Add Weather Plan</button>
-              <button className="cart-btn-hover" onClick={() => {}}>premium forecast</button>
-              <button className="cart-btn-universal" onClick={() => {}}>Ultimate Package</button>
+              <button 
+                data-cart="add" 
+                onClick={() => handleAddToCart({
+                  id: 'weather-plan-basic',
+                  name: 'Basic Weather Plan',
+                  description: 'Essential weather tracking for daily use',
+                  price: 12.99,
+                  icon: '☁️'
+                })}
+              >
+                Add Weather Plan
+              </button>
+              <button 
+                className="cart-btn-hover" 
+                onClick={() => handleAddToCart({
+                  id: 'premium-forecast',
+                  name: 'Premium Forecast',
+                  description: 'Extended 15-day forecasts with hourly data',
+                  price: 29.99,
+                  icon: '🌟'
+                })}
+              >
+                premium forecast
+              </button>
+              <button 
+                className="cart-btn-universal" 
+                onClick={() => handleAddToCart({
+                  id: 'ultimate-package',
+                  name: 'Ultimate Weather Package',
+                  description: 'All features + API access + alerts',
+                  price: 99.99,
+                  icon: '💎'
+                })}
+              >
+                Ultimate Package
+              </button>
             </div>
           </div>
         </div>
@@ -108,8 +148,28 @@ const Weather = () => {
                   </div>
                 </Link>
                 <div className="button-group">
-                  <button onClick={() => {}}>Add to Cart</button>
-                  <button onClick={() => {}}>Buy Now</button>
+                  <button 
+                    onClick={() => handleAddToCart({
+                      id: `${city.name.toLowerCase()}-data`,
+                      name: `${city.name} Weather Data`,
+                      description: `Detailed weather information for ${city.name}`,
+                      price: 7.99,
+                      icon: city.icon
+                    })}
+                  >
+                    Add to Cart
+                  </button>
+                  <button 
+                    onClick={() => handleAddToCart({
+                      id: `${city.name.toLowerCase()}-premium`,
+                      name: `${city.name} Premium Access`,
+                      description: `Full weather suite for ${city.name}`,
+                      price: 15.99,
+                      icon: city.icon
+                    })}
+                  >
+                    Buy Now
+                  </button>
                 </div>
               </div>
             ))}
