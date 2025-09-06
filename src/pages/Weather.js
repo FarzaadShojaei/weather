@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Weather.css';
+import '../components/CartButtons.css';
 
 const Weather = () => {
   const cities = [
@@ -76,6 +77,15 @@ const Weather = () => {
         <div className="container">
           <h1>Weather Forecast</h1>
           <p>Click on any city to view detailed weather information</p>
+          
+          <div className="cart-buttons-section">
+            <h3 className="cart-buttons-title">Weather Packages</h3>
+            <div className="cart-buttons-container">
+              <button data-cart="add" onClick={() => {}}>Add Weather Plan</button>
+              <button className="cart-btn-hover" onClick={() => {}}>premium forecast</button>
+              <button className="cart-btn-universal" onClick={() => {}}>Ultimate Package</button>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -83,20 +93,25 @@ const Weather = () => {
         <div className="container">
           <div className="cities-grid">
             {cities.map((city, index) => (
-              <Link 
-                key={index} 
-                to={`/weather/${city.name.toLowerCase()}`} 
-                className="city-card"
-              >
-                <div className="city-icon">{city.icon}</div>
-                <div className="city-info">
-                  <h3 className="city-name">{city.name}</h3>
-                  <p className="city-country">{city.country}</p>
-                  <div className="city-temperature">{city.temperature}</div>
-                  <p className="city-condition">{city.condition}</p>
-                  <p className="city-description">{city.description}</p>
+              <div key={index} className="city-card" style={{textDecoration: 'none', color: 'inherit'}}>
+                <Link 
+                  to={`/weather/${city.name.toLowerCase()}`} 
+                  style={{textDecoration: 'none', color: 'inherit'}}
+                >
+                  <div className="city-icon">{city.icon}</div>
+                  <div className="city-info">
+                    <h3 className="city-name">{city.name}</h3>
+                    <p className="city-country">{city.country}</p>
+                    <div className="city-temperature">{city.temperature}</div>
+                    <p className="city-condition">{city.condition}</p>
+                    <p className="city-description">{city.description}</p>
+                  </div>
+                </Link>
+                <div className="button-group">
+                  <button onClick={() => {}}>Add to Cart</button>
+                  <button onClick={() => {}}>Buy Now</button>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>

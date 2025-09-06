@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import '../components/CartButtons.css';
 
 const About = () => {
   const teamMembers = [
@@ -70,6 +71,15 @@ const About = () => {
           <p className="hero-subtitle">
             Your trusted companion for accurate weather forecasting and climate insights
           </p>
+          
+          <div className="cart-buttons-section">
+            <h3 className="cart-buttons-title">Company Services</h3>
+            <div className="cart-buttons-container">
+              <button className="cart-btn-primary" onClick={() => {}}>Add Consultation</button>
+              <button className="cart-btn-sibling" onClick={() => {}}>Enterprise Package</button>
+              <button className="cart-type-btn" onClick={() => {}}>Custom Solutions</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -127,6 +137,10 @@ const About = () => {
                   <h3>{member.name}</h3>
                   <p className="team-role">{member.role}</p>
                   <p className="team-description">{member.description}</p>
+                  <div className="button-group">
+                    <button onClick={() => {}}>Hire Expert</button>
+                    <button onClick={() => {}}>Schedule Call</button>
+                  </div>
                 </div>
               ))}
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Content.css';
+import '../components/CartButtons.css';
 
 const Content = () => {
   const articles = [
@@ -67,6 +68,15 @@ const Content = () => {
         <div className="container">
           <h1>Weather & Climate Articles</h1>
           <p>Stay informed with the latest insights on weather, climate, and environmental science</p>
+          
+          <div className="cart-buttons-section">
+            <h3 className="cart-buttons-title">Article Packages</h3>
+            <div className="cart-buttons-container">
+              <button data-cart="add" onClick={() => {}}>Add Article Access</button>
+              <button className="cart-btn-hover" onClick={() => {}}>premium content</button>
+              <button id="cart-btn-special" onClick={() => {}}>Full Library Access</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -97,7 +107,10 @@ const Content = () => {
                     <span className="article-date">{article.date}</span>
                     <span className="article-read-time">{article.readTime}</span>
                   </div>
-                  <button className="read-more-btn">Read More →</button>
+                  <div style={{display: 'flex', gap: '10px', marginTop: '10px'}}>
+                    <button className="read-more-btn">Read More →</button>
+                    <button className="cart-btn-universal" onClick={() => {}} style={{fontSize: '12px', padding: '8px 16px'}}>Add Article</button>
+                  </div>
                 </div>
               </article>
             ))}
@@ -111,6 +124,11 @@ const Content = () => {
               <div className="newsletter-form">
                 <input type="email" placeholder="Enter your email address" className="newsletter-input" />
                 <button className="newsletter-btn">Subscribe</button>
+              </div>
+              
+              <div className="cart-buttons-container" style={{marginTop: '20px'}}>
+                <button className="cart-type-btn" onClick={() => {}}>Add Newsletter Premium</button>
+                <button className="cart-btn-primary" onClick={() => {}}>Add to Cart</button>
               </div>
             </div>
           </div>

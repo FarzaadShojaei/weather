@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './CityWeather.css';
+import '../components/CartButtons.css';
 
 const CityWeather = () => {
   const { cityName } = useParams();
@@ -96,6 +97,11 @@ const CityWeather = () => {
               <h1>{city.name}, {city.country}</h1>
               <div className="current-temp">{city.currentTemp}</div>
               <p className="current-condition">{city.condition}</p>
+              
+              <div className="cart-buttons-container">
+                <button className="cart-btn-primary" onClick={() => {}}>Add City Data</button>
+                <button className="cart-type-btn" onClick={() => {}}>Buy Weather Pack</button>
+              </div>
             </div>
             <div className="current-icon">
               {city.icon}
@@ -159,8 +165,18 @@ const CityWeather = () => {
                   <span className="low-temp">{day.low}</span>
                 </div>
                 <div className="forecast-condition">{day.condition}</div>
+                <button data-cart="add" onClick={() => {}} style={{marginTop: '10px', fontSize: '11px', padding: '6px 12px'}}>Add Forecast</button>
               </div>
             ))}
+          </div>
+          
+          <div className="cart-buttons-section">
+            <h3 className="cart-buttons-title">Premium Weather Services</h3>
+            <div className="cart-buttons-container">
+              <button id="cart-btn-special" onClick={() => {}}>Extended Forecast</button>
+              <button className="cart-btn-hover" onClick={() => {}}>hourly updates</button>
+              <button className="cart-btn-universal" onClick={() => {}}>Weather Alerts</button>
+            </div>
           </div>
         </div>
       </div>
