@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import Navigation from './components/Navigation';
+import TitleBanner from './components/TitleBanner';
 import CartNotification from './components/CartNotification';
 import FloatingCart from './components/FloatingCart';
 import Home from './pages/Home';
@@ -18,6 +19,7 @@ function App() {
       <Router>
         <div className="App">
           <Navigation />
+          <TitleBanner />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/weather" element={<Weather />} />
