@@ -10,6 +10,10 @@ import Weather from './pages/Weather';
 import CityWeather from './pages/CityWeather';
 import Content from './pages/Content';
 import About from './pages/About';
+import Contact from './pages/Contact';
+import Forecast from './pages/Forecast';
+import Alerts from './pages/Alerts';
+import Services from './pages/Services';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -26,6 +30,10 @@ function App() {
             <Route path="/weather/:cityName" element={<CityWeather />} />
             <Route path="/content" element={<Content />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/forecast" element={<Forecast />} />
+            <Route path="/alerts" element={<Alerts />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/notfound" element={<NotFound />} />
             <Route path="/404" element={<Navigate to="/notfound" replace />} />
             <Route path="*" element={<Navigate to="/notfound" replace />} />

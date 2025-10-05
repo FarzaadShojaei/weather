@@ -176,6 +176,20 @@ const Weather = () => {
           </div>
         </div>
       </div>
+      
+      <div className="quick-links">
+        <div className="container">
+          <h2>Quick Navigation</h2>
+          <div className="nav-buttons">
+            <Link to="/" className="btn btn-primary">Home</Link>
+            <Link to="/forecast" className="btn btn-secondary">7-Day Forecast</Link>
+            <Link to="/alerts" className="btn btn-secondary">Weather Alerts</Link>
+            <Link to="/services" className="btn btn-secondary">Our Services</Link>
+            <Link to="/about" className="btn btn-secondary">About</Link>
+            <Link to="/contact" className="btn btn-secondary">Contact</Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

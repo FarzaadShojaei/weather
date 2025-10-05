@@ -23,8 +23,20 @@ const Home = () => {
             <Link to="/weather" className="btn btn-primary">
               Check Weather
             </Link>
+            <Link to="/forecast" className="btn btn-primary">
+              7-Day Forecast
+            </Link>
+            <Link to="/alerts" className="btn btn-secondary">
+              Weather Alerts
+            </Link>
             <Link to="/content" className="btn btn-secondary">
               Read Articles
+            </Link>
+            <Link to="/services" className="btn btn-secondary">
+              Our Services
+            </Link>
+            <Link to="/contact" className="btn btn-secondary">
+              Contact Us
             </Link>
           </div>
           

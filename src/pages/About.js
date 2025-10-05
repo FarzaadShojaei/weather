@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import './About.css';
 import '../components/CartButtons.css';
@@ -244,6 +245,17 @@ const About = () => {
                 <div className="contact-item">
                   <span className="contact-icon">📍</span>
                   <span>123 Weather Street, Climate City, CC 12345</span>
+                </div>
+              </div>
+              <div className="quick-links">
+                <h3>Quick Navigation</h3>
+                <div className="nav-buttons">
+                  <Link to="/" className="btn btn-primary">Home</Link>
+                  <Link to="/weather" className="btn btn-secondary">Weather</Link>
+                  <Link to="/forecast" className="btn btn-secondary">Forecast</Link>
+                  <Link to="/alerts" className="btn btn-secondary">Alerts</Link>
+                  <Link to="/services" className="btn btn-secondary">Services</Link>
+                  <Link to="/contact" className="btn btn-secondary">Contact</Link>
                 </div>
               </div>
             </div>

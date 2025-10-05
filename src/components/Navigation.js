@@ -17,10 +17,22 @@ const Navigation = () => {
             <Link to="/weather" className="nav-link">Weather</Link>
           </li>
           <li className="nav-item">
+            <Link to="/forecast" className="nav-link">Forecast</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/alerts" className="nav-link">Alerts</Link>
+          </li>
+          <li className="nav-item">
             <Link to="/content" className="nav-link">Content</Link>
           </li>
           <li className="nav-item">
+            <Link to="/services" className="nav-link">Services</Link>
+          </li>
+          <li className="nav-item">
             <Link to="/about" className="nav-link">About</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-link">Contact</Link>
           </li>
           <li className="nav-item">
             <Link to="/notfound" className="nav-link nav-link-404">404 Demo</Link>
